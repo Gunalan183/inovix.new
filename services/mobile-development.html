@@ -3,16 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mobile App Development - INOVIX</title>
+    <title>Mobile App Development Services | iOS & Android Apps | INOVIX</title>
+    <meta name="description" content="INOVIX delivers custom mobile app development services for iOS and Android platforms. From concept to launch, we create user-friendly, feature-rich mobile applications for businesses.">
+    <meta name="keywords" content="mobile app development, iOS app development, Android app development, custom mobile applications, app design, mobile development services, INOVIX">
+    <meta name="author" content="INOVIX">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.inovix.info/services/mobile-development.html">
+    <link rel="icon" href="../Inovix logo.png" type="image/png">
+    <link rel="shortcut icon" href="../Inovix logo.png" type="image/png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.inovix.info/services/mobile-development.html">
+    <meta property="og:title" content="Mobile App Development Services | iOS & Android Apps | INOVIX">
+    <meta property="og:description" content="INOVIX delivers custom mobile app development services for iOS and Android platforms. From concept to launch, we create user-friendly, feature-rich mobile applications.">
+    <meta property="og:image" content="https://www.inovix.info/assets/mobile-development-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.inovix.info/services/mobile-development.html">
+    <meta property="twitter:title" content="Mobile App Development Services | iOS & Android Apps | INOVIX">
+    <meta property="twitter:description" content="INOVIX delivers custom mobile app development services for iOS and Android platforms. From concept to launch, we create user-friendly mobile applications.">
+    <meta property="twitter:image" content="https://www.inovix.info/assets/mobile-development-og.jpg">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="../mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Mobile App Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "INOVIX",
+        "url": "https://www.inovix.info",
+        "logo": "https://www.inovix.info/Inovix logo.png"
+      },
+      "description": "Custom mobile application development services for iOS and Android platforms. We create user-friendly, feature-rich mobile apps that help businesses connect with their customers.",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "serviceOutput": "Custom mobile applications for iOS and Android"
+    }
+    </script>
 </head>
 <body>
     <header>
         <nav>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="logo">
                 <a href="../index.html">
                     <img src="../Inovix logo.png" alt="INOVIX Logo">
@@ -31,6 +80,32 @@
                 </li>
             </ul>
         </nav>
+        
+        <!-- Mobile Sidebar Navigation -->
+        <div class="mobile-sidebar" id="mobile-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <img src="../Inovix logo.png" alt="INOVIX Logo">
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#home" class="sidebar-link">Home</a></li>
+                <li><a href="../index.html#about" class="sidebar-link">About</a></li>
+                <li><a href="../index.html#services" class="sidebar-link">Services</a></li>
+                <!-- <li><a href="../index.html#team" class="sidebar-link">Team</a></li> -->
+                <li><a href="../index.html#contact" class="sidebar-link">Contact</a></li>
+                <li>
+                    <button id="sidebar-theme-toggle" class="theme-toggle sidebar-theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <span>Toggle Theme</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
     </header>
 
     <main class="service-page">
@@ -221,6 +296,58 @@
             icon.classList.toggle('fa-sun');
             icon.classList.toggle('fa-moon');
         });
+        
+        // Mobile Sidebar Functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sidebarThemeToggle = document.getElementById('sidebar-theme-toggle');
+        
+        // Open sidebar function
+        const openSidebar = () => {
+            mobileSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+        };
+        
+        // Close sidebar function
+        const closeSidebarFunc = () => {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        };
+        
+        // Event listeners for sidebar
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', openSidebar);
+        }
+        
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', closeSidebarFunc);
+        }
+        
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', closeSidebarFunc);
+        }
+        
+        // Close sidebar when a link is clicked
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebarFunc);
+        });
+        
+        // Sidebar theme toggle
+        if (sidebarThemeToggle) {
+            sidebarThemeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const sidebarIcon = sidebarThemeToggle.querySelector('i');
+                sidebarIcon.classList.toggle('fa-sun');
+                sidebarIcon.classList.toggle('fa-moon');
+                icon.classList.toggle('fa-sun');
+                icon.classList.toggle('fa-moon');
+            });
+        }
     </script>
 </body>
 </html>

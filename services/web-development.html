@@ -3,16 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Development Services - INOVIX</title>
+    <title>Web Development Services - Custom Websites & Web Apps | INOVIX</title>
+    <meta name="description" content="INOVIX offers professional web development services including custom website design, responsive development, e-commerce solutions, and web applications. Get a high-performing website that drives business results.">
+    <meta name="keywords" content="web development, website design, responsive websites, custom web applications, e-commerce development, frontend development, backend development, INOVIX, web solutions">
+    <meta name="author" content="INOVIX">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.inovix.info/services/web-development.html">
+    <link rel="icon" href="../Inovix logo.png" type="image/png">
+    <link rel="shortcut icon" href="../Inovix logo.png" type="image/png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.inovix.info/services/web-development.html">
+    <meta property="og:title" content="Web Development Services - Custom Websites & Web Apps | INOVIX">
+    <meta property="og:description" content="INOVIX offers professional web development services including custom website design, responsive development, e-commerce solutions, and web applications.">
+    <meta property="og:image" content="https://www.inovix.info/assets/web-development-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.inovix.info/services/web-development.html">
+    <meta property="twitter:title" content="Web Development Services - Custom Websites & Web Apps | INOVIX">
+    <meta property="twitter:description" content="INOVIX offers professional web development services including custom website design, responsive development, e-commerce solutions, and web applications.">
+    <meta property="twitter:image" content="https://www.inovix.info/assets/web-development-og.jpg">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="../mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            offset: 100,
+            once: true
+        });
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const icon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-theme');
+            icon.classList.toggle('fa-sun');
+            icon.classList.toggle('fa-moon');
+        });
+        
+        // Mobile Sidebar Functionality
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileSidebar = document.getElementById('mobile-sidebar');
+        const closeSidebar = document.getElementById('close-sidebar');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const sidebarThemeToggle = document.getElementById('sidebar-theme-toggle');
+        
+        // Open sidebar function
+        const openSidebar = () => {
+            mobileSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when sidebar is open
+        };
+        
+        // Close sidebar function
+        const closeSidebarFunc = () => {
+            mobileSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Re-enable scrolling
+        };
+        
+        // Event listeners for sidebar
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', openSidebar);
+        }
+        
+        if (closeSidebar) {
+            closeSidebar.addEventListener('click', closeSidebarFunc);
+        }
+        
+        if (sidebarOverlay) {
+            sidebarOverlay.addEventListener('click', closeSidebarFunc);
+        }
+        
+        // Close sidebar when a link is clicked
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', closeSidebarFunc);
+        });
+        
+        // Sidebar theme toggle
+        if (sidebarThemeToggle) {
+            sidebarThemeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const sidebarIcon = sidebarThemeToggle.querySelector('i');
+                sidebarIcon.classList.toggle('fa-sun');
+                sidebarIcon.classList.toggle('fa-moon');
+                icon.classList.toggle('fa-sun');
+                icon.classList.toggle('fa-moon');
+            });
+        }
+    </script>
+    
+    <!-- Structured Data / Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "INOVIX",
+        "url": "https://www.inovix.info",
+        "logo": "https://www.inovix.info/Inovix logo.png"
+      },
+      "description": "Professional web development services including custom website design, responsive development, e-commerce solutions, and web applications",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "India"
+      },
+      "serviceOutput": "Custom websites and web applications"
+    }
+    </script>
 </head>
 <body>
     <header>
         <nav>
+            <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
             <div class="logo">
                 <a href="../index.html">
                     <img src="../Inovix logo.png" alt="INOVIX Logo">
@@ -31,6 +151,32 @@
                 </li>
             </ul>
         </nav>
+        
+        <!-- Mobile Sidebar Navigation -->
+        <div class="mobile-sidebar" id="mobile-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">
+                    <img src="../Inovix logo.png" alt="INOVIX Logo">
+                </div>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="../index.html#home" class="sidebar-link">Home</a></li>
+                <li><a href="../index.html#about" class="sidebar-link">About</a></li>
+                <li><a href="../index.html#services" class="sidebar-link">Services</a></li>
+                <!-- <li><a href="../index.html#team" class="sidebar-link">Team</a></li> -->
+                <li><a href="../index.html#contact" class="sidebar-link">Contact</a></li>
+                <li>
+                    <button id="sidebar-theme-toggle" class="theme-toggle sidebar-theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-sun"></i>
+                        <span>Toggle Theme</span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
     </header>
 
     <main class="service-page">
@@ -50,7 +196,7 @@
                         <p>Our web development service encompasses everything from simple landing pages to complex web applications. We use the latest technologies and frameworks to build responsive, fast, and secure websites that provide an optimal user experience across all devices.</p>
                     </div>
                     <div class="intro-image">
-                        <img src="../assets/web development.jpeg" alt="Web Development Services">
+                        <img src="../assets/web development.jpeg" alt="Professional web development services at INOVIX" loading="lazy" width="500" height="333">
                     </div>
                 </div>
             </div>
