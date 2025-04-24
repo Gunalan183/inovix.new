@@ -96,7 +96,7 @@ The website has been tested and optimized for:
 
 ## Connect With INOVIX
 
-- Website: [https://www.inovix.info](https://www.inovix.info)
+- Website: [https://www.inovix.info](https://inovix-io.vercel.app/)
 - Email: contact@inovix.info
 - LinkedIn: [INOVIX](https://www.linkedin.com/in/inovix/)
 - Twitter: [@inovix](https://twitter.com/inovix)
